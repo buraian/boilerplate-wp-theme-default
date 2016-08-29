@@ -1,0 +1,11 @@
+{
+  "name": "brianclark/boilerplate-wp-theme-default",
+  "type": "wordpress-theme",
+  "description": "A developer-centric theme for WordPress.",
+  "authors": [
+    {
+      "name": "Brian Clark",
+      "email": "br.clark.77@gmail.com"
+    }
+  ]
+}
