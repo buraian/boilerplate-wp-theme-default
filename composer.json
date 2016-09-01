@@ -1,6 +1,5 @@
 {
   "name": "brianclark/boilerplate-wp-theme-default",
-  "version": "0.1.0",
   "type": "wordpress-theme",
   "description": "A developer-centric theme for WordPress.",
   "authors": [
