@@ -1,0 +1,47 @@
+// Page titles
+
+.title
+
+  // Default style ----------------------------------------
+  &-default
+
+    &-header
+      border-top: 1px solid $chinook
+      +rem-fallback(margin-bottom, 3.2)
+
+    &-title
+      border: 0
+      color: $midnight-blue
+      font-family: $font-family-sans-serif
+      +font-size(1.5)
+      font-weight: 400
+      letter-spacing: .4em
+      line-height: $headings-line-height
+      text-transform: uppercase
+      width: auto
+
+    &-subtitle
+      border-bottom: 1px solid $chinook
+      color: $midnight-blue
+      display: block
+      font-family: $headings-font-family
+      font-weight: 400
+      +font-size(($font-size-h2 * 3/4) * .1)
+      line-height: $headings-line-height
+      +rem-fallback(padding-bottom, 1.6)
+
+      @media (min-width: $screen-md-min)
+        +font-size($font-size-h2 * .1)
+
+  // Plain style ------------------------------------------
+  &-plain
+    margin-top: 0
+
+    a
+      color: $midnight-blue
+
+      &:focus,
+      &:hover
+        color: lighten($midnight-blue, 10%)
+
+    &-header

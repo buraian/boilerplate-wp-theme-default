@@ -1,0 +1,146 @@
+// Index
+
+.index-blog
+  +rem-fallback(padding-top, 11)
+  +rem-fallback(padding-bottom, 7)
+
+  @media (min-width: $screen-md-min)
+    +rem-fallback(padding-bottom, 11)
+
+  &-wrapper
+    background-color: $concrete
+
+  // Opening content --------------------------------------
+  &-opener
+
+    &-content
+      +font-size(1.6)
+
+  // Listing ----------------------------------------------
+  &-archive
+    +rem-fallback(margin-bottom, 7)
+    +rem-fallback(padding-top, 3.2)
+
+    @media (min-width: $screen-sm-min)
+      margin-bottom: 0
+
+  // All entries ------------------------------------------
+  &-entries
+    display: block
+    margin: 0
+    padding: 0
+
+  // Single entry -----------------------------------------
+  &-entry
+    display: block
+    list-style-type: none
+    +rem-fallback(margin, 0, 0, 5)
+    +rem-fallback(padding, 0, 0, 4)
+    padding-left: percentage(3 / $grid-columns)
+    position: relative
+
+    @media (min-width: $screen-sm-min)
+      padding-left: percentage(5 / $grid-columns)
+
+    @media (min-width: $screen-md-min)
+      +rem-fallback(min-height, 13)
+
+    @media (min-width: $screen-lg-min)
+      +rem-fallback(min-height, 16)
+
+    &-wrapper
+      border-top: 1px solid $chinook
+
+  // Date -------------------------------------------------
+  &-date
+    +font-size(1.3)
+    border: 0
+    color: $midnight-blue
+    font-family: $font-family-sans-serif
+    font-weight: 400
+    letter-spacing: .4em
+    line-height: $headings-line-height
+    -webkit-padding-start: .6em
+    -moz-padding-start: .6em
+    text-align: right
+    text-transform: uppercase
+    width: auto
+
+  // Featured image -------------------------------------
+  &-thumbnail
+    background-color: $midnight-blue
+    background-position: center
+    background-size: cover
+    display: inline-block
+    overflow: hidden
+    position: relative
+    width: 100%
+
+    &-wrapper
+      left: 0
+      position: absolute
+      top: 0
+      width: percentage(2 / $grid-columns)
+
+      @media (min-width: $screen-sm-min)
+        width: percentage(3 / $grid-columns)
+
+      @media (min-width: $screen-md-min)
+        +rem-fallback(width, 13)
+
+      @media (min-width: $screen-lg-min)
+        +rem-fallback(width, 16)
+
+    img
+      +object-fit
+
+    &:after
+      background-color: rgba($picton-blue, .7)
+      bottom: 0
+      content: ''
+      display: block
+      left: 0
+      mix-blend-mode: hard-light
+      position: absolute
+      right: 0
+      top: 0
+
+  // Post title -----------------------------------------
+  &-title
+    color: $chinook
+    font-family: $headings-font-family
+    font-size: $font-size-h4
+    line-height: $headings-line-height
+    margin-top: 0
+
+    a
+      color: $midnight-blue
+
+      &:focus,
+      &:hover
+        color: lighten($midnight-blue, 10%)
+
+  // Excerpt ----------------------------------------------
+  &-excerpt
+    +font-size(1.6)
+
+  // Author -----------------------------------------------
+  &-author
+    letter-spacing: .1em
+    +rem-fallback(margin, 0, 0, 1.6)
+    text-transform: uppercase
+
+    a
+      color: $midnight-blue
+      font-weight: 700
+
+      &:focus,
+      &:hover
+        color: lighten($midnight-blue, 10%)
+
+  // Post more link -------------------------------------
+  &-more
+    bottom: 0
+    position: absolute
+    right: 0
+    text-align: right

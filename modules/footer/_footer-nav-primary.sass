@@ -1,0 +1,28 @@
+// Footer Navigation
+// Primary
+
+.footer-nav-primary
+  display: block
+  list-style: none
+  padding: 0
+  margin: 0 0 1em
+
+  li
+    display: inline-block
+    list-style: none
+    padding: 0
+    margin: 0 2em 0 0
+
+    // If current page or ancestor
+    &.current-menu-item,
+    &.current_page_item,
+    &.current-menu-parent,
+    &.current_page_parent,
+    &.current-page-ancestor,
+    &.current_page_ancestor
+
+      > a
+        font-weight: $font-weight-bold
+
+    &:last-child
+      margin-right: 0
