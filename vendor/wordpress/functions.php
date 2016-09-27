@@ -67,6 +67,41 @@ if (function_exists( 'acf_add_options_page' )) {
 }
 
 /**
+ * Set Company Info Variables
+ *
+ * 1. Check for Advanced Custom Fields plugin
+ * 2. Check for the field
+ * 3. The company info
+ *
+ * @example
+ *   <?php echo $GLOBALS['bp_company']['name']; ?>
+ */
+function acf_field_exists( $field ) {
+  if ( !class_exists('acf') ) return false; // 1
+
+  if ( get_field($field) ) return true; // 2
+}
+
+function bp_global_vars() {
+  global $bp_company;
+  $bp_company = array( // 3
+    'name'      => acf_field_exists( get_field('company_name', 'option') )          ? get_field('company_name', 'option')          : 'Kramerica',
+    'phone'     => acf_field_exists( get_field('company_phone-general', 'option') ) ? get_field('company_phone-general', 'option') : '(123) 456-7890',
+    'map-url'   => acf_field_exists( get_field('company_map-url', 'option') )       ? get_field('company_map-url', 'option')       : '//maps.google.com/',
+    'street'    => acf_field_exists( get_field('company_street', 'option') )        ? get_field('company_street', 'option')        : '123 Maple Street',
+    'city'      => acf_field_exists( get_field('company_city', 'option') )          ? get_field('company_city', 'option')          : 'Anytown',
+    'state'     => acf_field_exists( get_field('company_state', 'option') )         ? get_field('company_state', 'option')         : 'USA',
+    'zip'       => acf_field_exists( get_field('company_zip', 'option') )           ? get_field('company_zip', 'option')           : '77777',
+    'facebook'  => acf_field_exists( get_field('company_facebook', 'option') )      ? get_field('company_facebook', 'option')      : '//www.facebook.com/',
+    'twitter'   => acf_field_exists( get_field('company_twitter', 'option') )       ? get_field('company_twitter', 'option')       : '//www.twitter.com/',
+    'instagram' => acf_field_exists( get_field('company_instagram', 'option') )     ? get_field('company_instagram', 'option')     : '//www.instagram.com/',
+    'youtube'   => acf_field_exists( get_field('company_youtube', 'option') )       ? get_field('company_youtube', 'option')       : '//www.youtube.com/',
+    'linkedin'  => acf_field_exists( get_field('company_linkedin', 'option') )      ? get_field('company_linkedin', 'option')      : '//www.linkedin.com/'
+  );
+}
+add_action( 'parse_query', 'bp_global_vars' );
+
+/**
  * Prevent Standard WP Gallery's Default Styles
  */
 add_filter( 'use_default_gallery_style', '__return_false' );
